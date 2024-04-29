@@ -1,0 +1,41 @@
+(
+    define (looper sx acc)
+        (match sx
+            (nil  acc) 
+            ((cons x xss)
+                (match x
+                    ((cons y z)
+                     (looper xss (cons y acc)))
+                    )
+                )
+            )
+)
+
+
+ (
+    define (looper2 sx acc)
+        (match sx
+            (nil  acc) 
+            ((cons x xss)
+                (match x
+                    ((cons y z)
+                     (looper2 xss (cons z acc)))
+                    )
+                )
+            )
+        )
+    
+(
+    define (firsts xs)
+    (let ((val nil))
+    (looper xs val))
+)
+
+(
+    define (seconds xs)
+    (let ((val nil))
+    (looper2 xs val))
+)
+
+(firsts (cons (cons 1 2) (cons (cons 3 4) (cons (cons 5 6) (cons (cons 7 8) (cons (cons 9 10)  nil))))))
+(seconds (cons (cons 1 2) (cons (cons 3 4) (cons (cons 5 6) (cons (cons 7 8) (cons (cons 9 10)  nil))))))
